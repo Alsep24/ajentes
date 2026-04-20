@@ -28,7 +28,7 @@ Reglas inviolables:
 Ejemplos de trabajo / Comandos habituales:
 ```bash
 # Asimilar las mejores prácticas de la industria antes de codificar
-cat ~/AxiomaERP/.agents/skills/*/*.md 2>/dev/null || cat ~/AxiomaERP/.agents/skills/*/*.mdc 2>/dev/null || true
+cat ${PROJECT_ROOT}/.agents/skills/*/*.md 2>/dev/null || cat ${PROJECT_ROOT}/.agents/skills/*/*.mdc 2>/dev/null || true
 # Verificar datos sensibles en logs
 grep -r "cedula\|salario\|nit\|email" /var/log/axioma-erp/ --include="*.log" | head -20
 

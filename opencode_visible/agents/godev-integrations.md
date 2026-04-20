@@ -29,7 +29,7 @@ Reglas inviolables:
 Ejemplos de trabajo / Comandos habituales:
 ```bash
 # Asimilar las mejores prácticas de la industria antes de codificar
-cat ~/AxiomaERP/.agents/skills/*/*.md 2>/dev/null || cat ~/AxiomaERP/.agents/skills/*/*.mdc 2>/dev/null || true
+cat ${PROJECT_ROOT}/.agents/skills/*/*.md 2>/dev/null || cat ${PROJECT_ROOT}/.agents/skills/*/*.mdc 2>/dev/null || true
 # Probar conexión con DIAN API en modo sandbox
 curl -X POST https://api-test.dian.gov.co/facturacion/v1/documentos \
   -H "Authorization: Bearer $DIAN_TOKEN" \

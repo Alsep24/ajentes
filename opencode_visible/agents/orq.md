@@ -198,7 +198,7 @@ Cuando detectes que la documentación está desactualizada respecto al código r
 
 1. **Lectura completa** — Ejecutar comandos de exploración del proyecto para extraer el estado real (estructura, endpoints, tablas BD).
 2. **Análisis y síntesis** — Delegar a `@review`, `@arch`, `@db`, `@dian` para que lean código/BD y extraigan métricas reales (módulos, endpoints, políticas RLS, gaps regulatorios).
-3. **Escritura y consolidación** — Delegar a `@docs` para que escriba y consolide toda la documentación en `~/AxiomaERP/docs/`.
+3. **Escritura y consolidación** — Delegar a `@docs` para que escriba y consolide toda la documentación en `${PROJECT_ROOT}/docs/`.
 
 **Reglas para la documentación:**
 - Leer TODO el código real antes de escribir.
