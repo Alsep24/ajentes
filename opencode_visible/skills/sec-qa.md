@@ -11,7 +11,7 @@ patrones de ataque específicos de una aplicación Go multitenant.
 
 Go 1.25 · Gin · pgx · PostgreSQL 16 RLS · OPA/ARBAC · JWT HS256
 
-**Directorio:** `/home/sedas/AxiomaERP/backend`
+**Directorio:** `${PROJECT_ROOT}/backend`
 **Historial de auditoría:** `docs/SEGURIDAD/AUDITORIA_2026-04.md`
 
 ---
@@ -71,7 +71,7 @@ comm -23 /tmp/r.txt /tmp/a.txt
 
 ### 5. RLS ausente en tabla nueva
 ```bash
-PGPASSWORD='erp_super_secret_2026' psql -h localhost -p 5433 -U erp_admin -d axioma_db \
+PGPASSWORD='${DB_PASSWORD}' psql -h localhost -p 5433 -U erp_admin -d axioma_db \
   -c "SELECT tablename FROM pg_tables t
       JOIN information_schema.columns c
         ON c.table_name=t.tablename AND c.column_name='tenant_id' AND c.table_schema='public'
@@ -136,7 +136,7 @@ grep -rn "float64\|float32\|parseFloat\|strconv\.ParseFloat" \
 ## Generar token de prueba para desarrollo
 
 ```bash
-cd /home/sedas/AxiomaERP/backend
+cd ${PROJECT_ROOT}/backend
 go run cmd/tools/gen-dev-token/main.go
 # DEV_MOCK_JWT=true en .env para bypassear OPA en desarrollo
 ```

@@ -18,10 +18,10 @@ arquitectónica y las vulnerabilidades ya auditadas en este proyecto.
 | OPA | ARBAC | externo (DEV_MOCK_JWT=true en dev) |
 | shopspring/decimal | Aritmética financiera | v1.4.0 |
 
-**Directorio:** `/home/sedas/AxiomaERP/backend`
+**Directorio:** `${PROJECT_ROOT}/backend`
 **Conexión BD:**
 ```bash
-PGPASSWORD='erp_super_secret_2026' psql -h localhost -p 5433 -U erp_admin -d axioma_db
+PGPASSWORD='${DB_PASSWORD}' psql -h localhost -p 5433 -U erp_admin -d axioma_db
 ```
 
 ---
@@ -90,7 +90,7 @@ Tablas globales sin RLS (no tienen tenant_id): `currencies`, `permissions`,
 cat docs/PROYECTO/ESTADO_ACTUAL.md && cat docs/PROYECTO/DEUDA_TECNICA.md
 
 # 2. Verificar schema real (nunca asumir columnas)
-PGPASSWORD='erp_super_secret_2026' psql -h localhost -p 5433 \
+PGPASSWORD='${DB_PASSWORD}' psql -h localhost -p 5433 \
   -U erp_admin -d axioma_db -c "\d nombre_tabla"
 
 # 3. Build limpio antes y después de cada cambio
@@ -203,7 +203,7 @@ grep -rn '"[0-9]\{4,5\}"' internal/services/ | grep -v "_test.go"    # → vací
 grep -rn "err\.Error()" internal/api/handlers/ | grep "c\.JSON\|gin\.H"    # → vacío
 
 # RLS en tablas nuevas (resultado = 0 tablas sin RLS)
-PGPASSWORD='erp_super_secret_2026' psql -h localhost -p 5433 -U erp_admin -d axioma_db \
+PGPASSWORD='${DB_PASSWORD}' psql -h localhost -p 5433 -U erp_admin -d axioma_db \
   -c "SELECT tablename FROM pg_tables t
       JOIN information_schema.columns c
         ON c.table_name=t.tablename AND c.column_name='tenant_id' AND c.table_schema='public'

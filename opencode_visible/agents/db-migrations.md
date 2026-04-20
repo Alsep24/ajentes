@@ -29,7 +29,7 @@ Ejemplos de trabajo / Comandos habituales:
 docker run --name axioma-sandbox --rm -d -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:16-alpine && sleep 3
 ```bash
 # Asimilar las mejores prácticas de la industria antes de codificar
-cat ~/AxiomaERP/.agents/skills/*/*.md 2>/dev/null || cat ~/AxiomaERP/.agents/skills/*/*.mdc 2>/dev/null || true
+cat ${PROJECT_ROOT}/.agents/skills/*/*.md 2>/dev/null || cat ${PROJECT_ROOT}/.agents/skills/*/*.mdc 2>/dev/null || true
 # Crear nueva migración
 migrate create -ext sql -dir internal/db/migrations -seq agregar_columna_x_a_tabla_y
 

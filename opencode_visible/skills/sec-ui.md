@@ -21,7 +21,7 @@ Feature-Sliced Design + Tailwind + Zustand + React Query + Axios.
 | React Router v7 | — | Routing |
 | Lucide React | — | Íconos |
 
-**Directorio:** `/home/sedas/AxiomaERP/frontend`
+**Directorio:** `${PROJECT_ROOT}/frontend`
 **API Backend:** `http://localhost:8080/api/v1`
 
 ---
@@ -223,7 +223,7 @@ export default api
 ## Checklist al terminar un componente/feature
 
 ```bash
-cd /home/sedas/AxiomaERP/frontend
+cd ${PROJECT_ROOT}/frontend
 
 # TypeScript sin errores
 npx tsc --noEmit 2>&1 | head -20    # → vacío

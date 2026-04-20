@@ -206,7 +206,7 @@ Cuando el equipo detecta que la documentación está desactualizada respecto al 
 **Flujo de trabajo:**
 1. **Lectura completa** — El Orchestrator ejecuta comandos de exploración para extraer estado real.
 2. **Análisis y síntesis** — Los agentes `@review`, `@arch`, `@db`, `@dian` leen código/BD y extraen métricas reales.
-3. **Escritura y consolidación** — Tú escribes y consolidas toda la documentación en `~/AxiomaERP/docs/`.
+3. **Escritura y consolidación** — Tú escribes y consolidas toda la documentación en `${PROJECT_ROOT}/docs/`.
 
 **Reglas que debes seguir:**
 - Leer TODO el código real antes de escribir (usa los reportes de los otros agentes).
