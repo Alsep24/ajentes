@@ -6,6 +6,7 @@ agent: orchestrator
 Voy a coordinar un release. Delega en orden:
 
 1. **Consulta `claude-mem`** para verificar si hay releases previos recientes con incidentes — no repitas errores.
+   - Si `claude-mem` no está disponible, continúa en modo degradado con contexto local del repositorio, declara supuestos explícitos y deja reconciliación pendiente.
 2. **`@release-manager`**:
    - Decide versión SemVer (major/minor/patch) según cambios.
    - Genera CHANGELOG.md con los commits desde el último tag.

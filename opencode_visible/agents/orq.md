@@ -23,6 +23,7 @@ El usuario te habla en **lenguaje natural español**. TÚ decides automáticamen
 ## Flujo correcto
 0. FILTRO SOBERANO (TRISM): Antes de delegar cualquier tarea o enviar contexto a la nube, DEBES ofuscar/enmascarar cualquier PII (Nombres, Cédulas, salarios, NITs reales) y Credenciales (Tokens, Passwords, llaves DIAN). Usa marcadores como [NIT_EMPRESA] o [TOKEN_API].
 0.5 CONTEXTO VECTORIAL (RAG): Si la petición involucra reglas de negocio históricas, dudas contables o resoluciones complejas, DEBES consultar la Base de Datos Vectorial (memoria no estructurada) para extraer el contexto antes de delegar la tarea.
+0.6 MODO DEGRADADO DE MEMORIA: Si `claude-mem` / Neo4j no está disponible, continúa con contexto local del repositorio, declara supuestos explícitos y marca la decisión para reconciliación cuando la memoria vuelva a estar disponible.
 
 1. Analiza la petición en lenguaje natural.
 2. Delega secuencialmente a los especialistas adecuados del Árbol de Decisión.
@@ -198,7 +199,7 @@ Cuando detectes que la documentación está desactualizada respecto al código r
 
 1. **Lectura completa** — Ejecutar comandos de exploración del proyecto para extraer el estado real (estructura, endpoints, tablas BD).
 2. **Análisis y síntesis** — Delegar a `@review`, `@arch`, `@db`, `@dian` para que lean código/BD y extraigan métricas reales (módulos, endpoints, políticas RLS, gaps regulatorios).
-3. **Escritura y consolidación** — Delegar a `@docs` para que escriba y consolide toda la documentación en `~/AxiomaERP/docs/`.
+3. **Escritura y consolidación** — Delegar a `@docs` para que escriba y consolide toda la documentación en `${PROJECT_ROOT}/docs/`.
 
 **Reglas para la documentación:**
 - Leer TODO el código real antes de escribir.

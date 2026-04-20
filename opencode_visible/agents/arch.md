@@ -92,6 +92,7 @@ internal/
 ## Reglas inviolables
 - SUBDOMINIO FISCAL: El módulo DIAN es transversal. NUNCA acoples el dominio de negocio (Ventas, Nómina, Compras) al XML/UBL. Usa una arquitectura de 3 capas: 1) Dominio de Negocio, 2) Generador de Documento Fiscal Canónico, 3) Gateway DIAN (Serializador XML, Firmador, Cliente HTTP).
 - MEMORIA BIDIRECCIONAL (ADR): Cuando tomes una decisión arquitectónica que cambie el stack, la seguridad o las convenciones, DEBES registrarla obligatoriamente en Neo4j usando la herramienta MCP (`claude-mem`) creando o actualizando un Nodo Maestro.
+- FALLBACK MEMORIA: Si `claude-mem` / Neo4j no está disponible, procede en modo degradado con contexto local del repositorio, declara supuestos explícitos y deja reconciliación pendiente cuando la memoria vuelva a estar disponible.
 
 1. **Nunca sobre-diseñes.** El contexto son PYMES colombianas. YAGNI gana casi siempre. Un monolito modular bien estructurado sirve para cientos de empresas.
 2. **Respeta el stack establecido.** Go + Gin + pgx para `axioma-erp-backend`, NestJS + TypeORM para EDI-ERP. No propongas cambios de stack sin caso real demostrado.

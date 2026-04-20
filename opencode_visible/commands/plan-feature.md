@@ -6,6 +6,7 @@ agent: orchestrator
 Voy a planificar un nuevo feature del ERP. Coordina a los agentes necesarios siguiendo este protocolo:
 
 1. **Consulta `claude-mem`** (`search` con palabras clave del feature) para ver si hay decisiones o trabajo previo relacionado.
+   - Si `claude-mem` no está disponible, continúa en modo degradado con contexto local del repositorio, declara supuestos explícitos y deja reconciliación pendiente.
 2. Delega a **`@product-manager`** para que escriba historias de usuario priorizadas con criterios de aceptación Gherkin.
 3. Si el feature toca reglas fiscales/contables (retenciones, IVA, PUC, facturación, nómina, NIIF), delega en paralelo a **`@colombian-compliance-expert`** para validar el marco normativo vigente y a **`@business-analyst`** para detallar las reglas de negocio.
 4. Delega a **`@software-architect`** para un ADR breve con las opciones de implementación, impacto multi-tenant y trade-offs.

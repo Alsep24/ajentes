@@ -6,6 +6,7 @@ agent: orchestrator
 Voy a implementar un módulo/historia ya planificada. Coordina la cadena estándar:
 
 1. **Consulta `claude-mem`** para recuperar el plan (ADR, historias, reglas de negocio) y decisiones previas.
+   - Si `claude-mem` no está disponible, continúa en modo degradado con contexto local del repositorio, declara supuestos explícitos y deja reconciliación pendiente.
 2. Identifica el proyecto objetivo:
    - Si es `axioma-erp-backend` → **`@go-backend-engineer`** implementa.
    - Si es EDI-ERP → **`@nestjs-backend-engineer`** implementa backend y **`@vue-frontend-engineer`** implementa UI.

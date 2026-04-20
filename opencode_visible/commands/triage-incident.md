@@ -12,6 +12,7 @@ Hay un incidente. Actúa rápido pero con disciplina:
    - Intenta reproducir en staging.
    - Recolecta evidencia (logs, timestamps, payloads, queries lentas).
 2. **Consulta `claude-mem`** — ¿hemos tenido este síntoma antes? Si sí, recupera la solución previa.
+   - Si `claude-mem` no está disponible, continúa en modo degradado con contexto local del repositorio, declara supuestos explícitos y deja reconciliación pendiente.
 3. Según la evidencia, escala:
    - Bug de cálculo fiscal → **`@colombian-compliance-expert`** + **`@go-backend-engineer`** (o `@nestjs-backend-engineer`).
    - Lentitud / timeout → **`@performance-engineer`** + **`@database-architect`**.
