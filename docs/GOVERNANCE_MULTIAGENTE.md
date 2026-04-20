@@ -51,3 +51,23 @@ Un chequeo de compatibilidad pasa a blocking solo cuando:
 ## 6) Validaciones recomendadas
 - Seguridad local (blocking): `scripts/lint_runtime_safety.py`
 - Compatibilidad (advisory): `scripts/lint_runtime_compat_advisory.py`
+
+## 7) Gobernanza de memoria (M1 local)
+
+Cuando un prompt/comando dependa de `claude-mem`, `Neo4j`, `Nodos Maestros`, `search` o `get_observations`:
+
+1. Debe declarar cláusula explícita de fallback/degradación.
+2. Debe explicitar el estado de memoria usado (`fresh`, `stale`, `unavailable`) cuando aplique.
+3. Debe evitar decisiones implícitas no trazables si la memoria está `unavailable`.
+
+### Regla de autoridad con límites
+La frase “prioridad absoluta” de Nodos Maestros se interpreta como prioridad de dominio, pero **no** anula:
+- políticas locales críticas de seguridad,
+- hard constraints de runtime local documentadas,
+- controles de gobernanza obligatorios del repositorio.
+
+### Criterio de calidad para prompts críticos
+Prompts críticos (orquestador, comandos, arquitectura, DB/QA/seguridad con dependencia de memoria) deben incluir:
+- condición de fallback,
+- comportamiento en modo degradado,
+- reconciliación posterior cuando memoria vuelva a estar disponible.
